@@ -7,6 +7,7 @@ int main()
 
   auto display = config->addSection("display", "tests/Configuration/Display.toml");
   display->addBool("blending", true);
+  display->addBool("fullScreen", true);
   display->addInt("lighting", 2)->addConstraint(new IntRangeConstraint(0, 2));
 
   auto gui = config->addSection("gui", "tests/Configuration/GUI.toml");

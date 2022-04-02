@@ -24,10 +24,12 @@ bool ConfigurationSection::save()
 }
 
 // TODO: Figure out if it's possible to replace these with a template, since they're the same except for the type
-// TODO: Handle creating a new entry in the TOML representation if it doesn't exist
 
 ConfigurationItem<bool>* ConfigurationSection::addBool(std::string name, bool defaultValue)
 {
+  if (!tomlObj.contains(name))
+    tomlObj[name] = toml::value(defaultValue);
+
   auto item = new ConfigurationItem<bool>(toml::find<bool>(tomlObj, name), defaultValue);
   boolItems[name] = item;
   return item;
@@ -35,6 +37,9 @@ ConfigurationItem<bool>* ConfigurationSection::addBool(std::string name, bool de
 
 ConfigurationItem<std::int64_t>* ConfigurationSection::addInt(std::string name, std::int64_t defaultValue)
 {
+  if (!tomlObj.contains(name))
+    tomlObj[name] = toml::value(defaultValue);
+
   auto item = new ConfigurationItem<std::int64_t>(toml::find<std::int64_t>(tomlObj, name), defaultValue);
   intItems[name] = item;
   return item;
@@ -42,6 +47,9 @@ ConfigurationItem<std::int64_t>* ConfigurationSection::addInt(std::string name, 
 
 ConfigurationItem<double>* ConfigurationSection::addFloat(std::string name, double defaultValue)
 {
+  if (!tomlObj.contains(name))
+    tomlObj[name] = toml::value(defaultValue);
+
   auto item = new ConfigurationItem<double>(toml::find<double>(tomlObj, name), defaultValue);
   floatItems[name] = item;
   return item;
@@ -49,6 +57,9 @@ ConfigurationItem<double>* ConfigurationSection::addFloat(std::string name, doub
 
 ConfigurationItem<std::string>* ConfigurationSection::addString(std::string name, std::string defaultValue)
 {
+  if (!tomlObj.contains(name))
+    tomlObj[name] = toml::value(defaultValue);
+
   auto item = new ConfigurationItem<std::string>(toml::find<std::string>(tomlObj, name), defaultValue);
   stringItems[name] = item;
   return item;
