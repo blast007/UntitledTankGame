@@ -1,0 +1,18 @@
+filter = ""
+favorites = [
+    "xs.bzexcess.com:5154",
+    "something.com:4545",
+    "another.server.was.here:1337"
+]
+
+[filters]
+filter1 = "/p>0,# Servers with players"
+filter2 = "/p>0/op>0,# Servers with players or observers"
+filter3 = "/p>0,s>=2,s<=3,# 2 or 3 shots with players"
+filter4 = "/p>0,+rabbit,# Rabbit chase with players"
+filter5 = "/-j,+r,s=2,+ctf,vt=2, # ducati-style servers"
+filter6 = "/d]louman|ahs3|spazzy|jefenry, # fancy maps"
+filter7 = "/vt=2,mp=2,# 1vs1 servers"
+filter8 = "/d)*official*league*match*,# League match servers"
+filter9 = "/+replay,# Replay servers"
+
