@@ -135,11 +135,4 @@ class Configuration
     ConfigurationSection* getSection(std::string name);
 
     bool save();
-
-    /*bool readFromFile(std::string fileName);
-    bool writeToFile(std::string fileName);
-    void test();
-    ConfigurationData* get();*/
-
-
 };
