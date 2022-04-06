@@ -62,6 +62,8 @@ struct ConfigurationItem {
     T get() const { return _value; }
     T getDefault() const { return _defaultValue; }
     void reset() { _value = _defaultValue; }
+    // TODO: Decide if this should throw an exception if the new value fails a constraint to indicate
+    //   which constraint failed
     bool set(T newValue) { if (!isValid(newValue)) return false; _value = newValue; return true; }
     bool isValid(T checkValue) const {
       for (auto& constraint : constraints)
