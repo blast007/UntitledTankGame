@@ -93,7 +93,7 @@ struct ConfigurationItem {
 struct ConfigurationSection {
     ConfigurationSection(std::string fileName, bool autoSave = true);
     ~ConfigurationSection();
-    bool save();
+    bool save(std::string alternateFileName = "");
     ConfigurationItem<bool>* addBool(std::string name, bool defaultValue);
     ConfigurationItem<std::int64_t>* addInt(std::string name, std::int64_t defaultValue);
     ConfigurationItem<double>* addFloat(std::string name, double defaultValue);

@@ -14,11 +14,17 @@ ConfigurationSection::~ConfigurationSection()
     save();
 }
 
-bool ConfigurationSection::save()
+bool ConfigurationSection::save(std::string alternateFileName)
 {
-  // TODO: Implement saving the file.
-  std::cout << "Writing configuration not yet implemented. This would have been written to " << _fileName << ":" << std::endl;
-  std::cout << tomlObj << std::endl;
+  std::ofstream file;
+  if (alternateFileName.length() > 0)
+    file.open(alternateFileName, std::ios::trunc);
+  else
+    file.open(_fileName, std::ios::trunc);
+  if (!file)
+    return false;
+  file << tomlObj << std::endl;
+  file.close();
 
   return true;
 }
