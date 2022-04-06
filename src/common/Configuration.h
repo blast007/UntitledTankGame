@@ -69,13 +69,15 @@ struct ConfigurationItem {
           return false;
       return true;
     };
-    // TODO: Decide if this should return a bool indicating if the current value was reset due to failing the constraint
-    void addConstraint(ConfigurationConstraint<T>* constraint) {
+    // TODO: Decide if this should throw an exception if the current value fails the constraint
+    ConfigurationItem* addConstraint(ConfigurationConstraint<T>* constraint) {
       // Add the constraint to the list
       constraints.push_back(constraint);
       // Check if the current value is valid according to the newly added constraint, and if not, reset to default
       if (!constraint->isValid(_value))
         reset();
+
+      return this;
     }
   private:
     T& _value;
