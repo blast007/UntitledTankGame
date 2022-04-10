@@ -7,7 +7,7 @@ This is currently just a sandbox to play around with some components that might 
 ## Building
 
 This requires CMake and vcpkg. Create a VCPKG_ROOT environment variable pointing to the root of your vcpkg git clone or
-manually define the CMAKE_TOOLCHAIN_FILE pointing to the ```scripts/buildsystems/vcpkg.cmake``` file of your vcpkg.
+manually define CMAKE_TOOLCHAIN_FILE pointing to the ```scripts/buildsystems/vcpkg.cmake``` file of your vcpkg.
 
 ```
 mkdir build
@@ -16,7 +16,18 @@ cmake ..
 make
 ```
 
-The program *currently* expects to be run with the working directory pointed at the base of the git clone.
+## Component Ideas
+
+* **Common** - Components used by the most/all applications (client, server, etc)
+ * **Configuration** - TOML-backed configuration system with value constraints and update callbacks
+ * **FSHelper** - Functions for obtaining filesystem locations that return platform-specific answers (such as the
+   documents, configuration, or cache directories)
+ * **NetUtils** - Tools for handling IP addresses, address range matches, DNS lookups, UPnP/NAT-PMP, and mDNS/DNS-SD
+ * **ModelLoader** - Loads GLTF models and supports reading a custom extension that would contain BZFlag world information
+* **Graphics** - Components used by the client and other graphical programs
+  * **Window** - Targets SDL2 that take the desired window state (windowed/fullscreen, size/resolution, display index)
+    and figures out how to get to that state
+* **Simulation** - Components for calculating a deterministic simulation of the game based on input states
 
 ## License
 
@@ -39,3 +50,4 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ```
+
