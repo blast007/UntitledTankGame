@@ -3,6 +3,7 @@
     "name": "regextest",
     "version": "0.0.1",
     "dependencies": [
-        "toml11"
+        "toml11",
+        "catch2"
     ]
 }

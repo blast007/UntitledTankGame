@@ -1,5 +1,5 @@
-blending = true
-lighting = 12
+blending = false
+lighting = 4
 
 [fullscreenMode]
 displayIndex = 0

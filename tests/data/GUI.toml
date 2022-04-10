@@ -1,2 +1,4 @@
 hideMottos = false
 mottoDisplayLength = 32
+pulseDepth = 0.6
+pulseRate = 2.0
